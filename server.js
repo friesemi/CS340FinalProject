@@ -38,5 +38,5 @@ function listenHandler() {
 
 // Node.js server setup.
 var server = http.createServer(requestHandler);
-server.listen(3006, listenHandler);	//open port 3000, if this port is used, try 3001, 3002, ect..
-console.log("Server is running on port: ", 3006); //3000 can be variable
+server.listen(3006, listenHandler);	//open port 3006
+console.log("Server is running on port: ", 3006); //3006 is variable port
