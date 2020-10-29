@@ -6,6 +6,8 @@
 var http 	= require("http");	//initiallize the server to require node.js http functions
 var fs 		= require("fs");
 var html	= "";
+var file    = "./public";
+var page    = "";
 
 /*
  * This function is called each time the server
@@ -18,11 +20,17 @@ function requestHandler(req, resp) {
 	console.log("Server received a request: ", req.method);
 	console.log("Path: ", req.url);
 
-	fs.readFile("./public/index.html", function(err, html) {
+    if(req.url == "/")
+        page = file.concat("/index.html");
+
+    else if(req.url == "/owner.html" || req.url == "/breeder.html" || req.url == "/walkers.html" || req.url == "dog_meet.html")
+        page = file.concat(req.url);
+
+	fs.readFile(page, function(err, html) {
 		if (err) {
 			throw err;
 		}
-		//send a request responce.
+		//send a request response.
 		resp.writeHeader(200, {"Content-Type": "text/html"});
 		resp.write(html);
 		resp.end();
