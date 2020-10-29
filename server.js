@@ -20,10 +20,10 @@ function requestHandler(req, resp) {
 	console.log("Server received a request: ", req.method);
 	console.log("Path: ", req.url);
 
-    if(req.url == "/")
+    if(req.url == "/" || req.url == "/index.html")
         page = file.concat("/index.html");
 
-    else if(req.url == "/owner.html" || req.url == "/breeder.html" || req.url == "/walkers.html" || req.url == "dog_meet.html")
+    else if(req.url == "/owners.html" || req.url == "/breeder.html" || req.url == "/walkers.html" || req.url == "dog_meet.html")
         page = file.concat(req.url);
 
 	fs.readFile(page, function(err, html) {
