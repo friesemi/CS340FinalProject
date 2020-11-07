@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.background{
+    width: 1200px;
+    height: auto;
+    position:fixed;
+    bottom:0px;
+    left: 15%;
+
+}
+
+.navbar{
+    height: 90px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(21,140,255,0.4);
+}
+
+.navbar ul{
+    float: right;
+    margin-right: 20px;
+}
+
+.navbar ul li{
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
+    font-weight: bold;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 6px 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background:rgba(21,140,255,0.6);
+    border-radius: 2px;
+
+}
+
+.center p {
+    font-size: 20px;
+    width: 1200px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 50px;
+    text-align: left;
+}
+
+h4 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+
+.background .center{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+
+}
+
+.center h1{
+    font-size: 63px;
+    font-weight: bold;
+    margin-top: 50px;
+    width: 900px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.center2 h1{
+    font-size: 63px;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 900px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.paragraphfont p {
+    font-size: 20px;
+    width: 1200px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.ownerinfo input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+.ownerinfo input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.ownerinfo label {
+    font-family: 'Poppins', sans-serif;
+}
+
+.titleinfo h2 {
+    margin-top: 30px;
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.titleinfo p {
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+
+}
+
+.ownerinfo{
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(21,140,255,0.2);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    background-color: rgba(21,140,255,0.8);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.titleinfo2 h2 {
+    margin-top: 30px;
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.titleinfo2 p {
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+
+}
+
+.searchinfo{
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(21,140,255,0.2);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchinfo input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+.searchinfo input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.titleinfo3 h2 {
+    margin-top: 30px;
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.titleinfo3 p {
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+
+}
+
+.deleteinfo{
+    max-width: 550px;
+    margin: 0 auto;
+    background: rgba(21,140,255,0.2);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.deleteinfo input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+.deleteinfo input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropbtn {
+    background: rgba(21,140,255,0);
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+  }
+
+  
+.dropdown .dropbtn {
+    color: white;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+  
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background:rgba(21,140,255,0.6);
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background:rgba(21,100,255);
+    min-width: 160px;
+    z-index: 1;
+}
+  
+  .dropdown-content a {
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
