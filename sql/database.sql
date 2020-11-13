@@ -5,20 +5,36 @@ CREATE DATABASE IF NOT EXISTS WLTDMUDatabase CHARACTER SET utf8 COLLATE utf8_uni
 USE WLTDMUDatabase;
 
 -- Create Owners Entity (Shayla)
+DROP TABLE IF EXISTS Owners;
 
+CREATE TABLE Owners (
+	ownersId int UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	num_dogs int NOT NULL
+);
 
 -- Create Dogs Entity (Michael)
-DROP TABLE IF EXISTS Dogs;
+DROP TABLE IF EXISTS Breeders;
 
-CREATE TABLE Dogs (
-	dogId int UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Breeders (
+	breederId int UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name varchar(255) NOT NULL,
-	breed varchar(255) NOT NULL,
-	size varchar(255) NOT NULL
+	email varchar(255) NOT NULL,
+	specialized_breeds varchar(255) NOT NULL,
+	has_dogs boolean NOT NULL,
+	dogs_avail int NOT NULL
 );
 
 -- Create Breeder Entity (Shayla)
+DROP TABLE IF EXISTS Breeders;
 
+CREATE TABLE Owners (
+	ownersId int UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name varchar(255) NOT NULL,
+	email varchar(255) NOT NULL,
+	num_dogs int NOT NULL
+);
 
 -- Create Dog_Meets Entity (Michael)
 DROP TABLE IF EXISTS Dog_Meets;
@@ -45,18 +61,26 @@ CREATE TABLE Dog_Walkers (
 );
 
 -- Create Owner_Walker Entity (Shayla)
-
+CREATE TABLE Owner_Walker (
+	ownersId int NOT NULL,
+	walkerId int NOT NULL,
+	PRIMARY KEY (ownersId, walkerId),
+	FOREIGN KEY	fk_ownersId(ownerId) REFERENCES Owners(ownerId)
+	ON DELETE CASCADE,
+	FOREIGN KEY	fk_walkerId(walkerId) REFERENCES Dog_Walkers(walkerId)
+	ON DELETE CASCADE
+);
 
 -- Create Owner_Breeder Entity (Michael)
 DROP TABLE IF EXISTS Owner_Breeder
 
 CREATE TABLE Owner_Breeder (
 	breederId int NOT NULL,
-	ownerId int NOT NULL,
-	PRIMARY KEY (breederId, ownerId),
-	FOREIGN KEY	fk_breederId(breederId) REFERENCES Breeders(breederId)
+	ownersId int NOT NULL,
+	PRIMARY KEY (ownerId, breederId),
+	FOREIGN KEY	fk_ownersId(ownerId) REFERENCES Owners(ownerId)
 	ON DELETE CASCADE,
-	FOREIGN KEY	fk_ownerId(ownerId) REFERENCES Owners(ownerId)
+	FOREIGN KEY	fk_breederId(breederId) REFERENCES Breeders(breederId)
 	ON DELETE CASCADE
 );
 
@@ -78,6 +102,26 @@ ON DELETE CASCADE;
 
 -- Insert Sample Data --
 
+
+-- Example Owners Data
+INSERT INTO Owners (name, email, num_dogs)
+VALUES ("Shayla", "transhay@oregonstate.edu", "1");
+
+INSERT INTO Owners (name, email, num_dogs)
+VALUES ("Sylvia", "sylvia.tran06@gmail.com", "1");
+
+INSERT INTO Dogs (name, email, num_dogs)
+VALUES ("Ron", "leron@oregonstate.edu", "1");
+
+-- Example Breeders Data
+INSERT INTO Breeders (name, email, specialized_breeds, has_dogs, dogs_avail)
+VALUES ("Vicki", "boxnbullz@gmail.com", "English Bulldogs", 0, 0);
+
+INSERT INTO Breeders (name, email, specialized_breeds, has_dogs, dogs_avail)
+VALUES ("Courtney", "courtney@gmail.com", "English Bulldogs", 10, 3);
+
+INSERT INTO Breeders (name, email, specialized_breeds, has_dogs, dogs_avail)
+VALUES ("Umpqua Valle Kennels", "umpquavalleykennels@gmail.com", "French Bulldogs", 5, 0);
 
 -- Example Dogs Data
 INSERT INTO Dogs (name, breed, size)
