@@ -1,6 +1,19 @@
 -- CRUD OPERATIONS --
 -- Owner Statements (Shayla) --
+INSERT INTO Owners (name, email, num_dogs)
+VALUES (:nameInput, :emailInput, :num_dogsInput);
 
+-- READ statement
+SELECT * FROM Owners;
+SELECT * FROM Owners WHERE name=:nameInput;
+
+-- UPDATE statement
+UPDATE Owners
+SET name=:nameInput, email=:emailInput, num_dogs=:num_dogsInput;
+WHERE ownerId=(SELECT ownerId FROM Owners WHERE name=:nameInput); -- This criteria needs to be assessed somehow
+
+-- DELETE statement
+DELETE FROM Owners WHERE name=:nameInput;
 
 
 -- Dog statements (Michael) --
@@ -22,7 +35,20 @@ DELETE FROM Dogs WHERE name=:nameInput;
 
 
 -- Breeder statements (Shayla) --
+INSERT INTO Breeders (name, email, specialized_breeds, has_dogs, dogs_avail)
+VALUES (:nameInput, :emailInput, :specialized_breedsInput, has_dogsInput, dogs_availInput);
 
+-- READ statement
+SELECT * FROM Breeders;
+SELECT * FROM Breeders WHERE name=:nameInput;
+
+-- UPDATE statement
+UPDATE Breeders
+SET name=:nameInput, email=:emailInput, specialized_breeds=:specialized_breedsInput, has_dogs=:has_dogsInput, dogs_avail=:dogs_availInput;
+WHERE breederId=(SELECT breederId FROM Breeders WHERE name=:nameInput); -- This criteria needs to be assessed somehow
+
+-- DELETE statement
+DELETE FROM Breeders WHERE name=:nameInput;
 
 
 -- Dog_Meet statements (Michael) --
