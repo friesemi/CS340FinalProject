@@ -76,11 +76,11 @@ DROP TABLE IF EXISTS Owner_Breeder
 
 CREATE TABLE Owner_Breeder (
 	breederId int NOT NULL,
-	ownerId int NOT NULL,
-	PRIMARY KEY (breederId, ownerId),
-	FOREIGN KEY	fk_breederId(breederId) REFERENCES Breeders(breederId)
+	ownersId int NOT NULL,
+	PRIMARY KEY (ownerId, breederId),
+	FOREIGN KEY	fk_ownersId(ownerId) REFERENCES Owners(ownerId)
 	ON DELETE CASCADE,
-	FOREIGN KEY	fk_ownerId(ownerId) REFERENCES Owners(ownerId)
+	FOREIGN KEY	fk_breederId(breederId) REFERENCES Breeders(breederId)
 	ON DELETE CASCADE
 );
 
