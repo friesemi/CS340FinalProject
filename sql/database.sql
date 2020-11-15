@@ -1,9 +1,3 @@
--- CREATION OF DATABASE --
--- Create the database
-CREATE DATABASE IF NOT EXISTS WLTDMUDatabase CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
-USE WLTDMUDatabase;
-
 -- Create Owners Entity (Shayla)
 DROP TABLE IF EXISTS Owner_Walker;
 DROP TABLE IF EXISTS Owner_Breeder;
