@@ -1,0 +1,14 @@
+<main id="create_dog">
+    <div class="titleinfo">
+            <center><h2>Create a New Dog</h2>
+            <p> Please input dog's name, breed, and dog's size (small, medium, large).
+            </p></center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name= "dogName" placeholder="Dog's Name" value="{{dog_name}}">
+        <input type="text" class="input" name= "dogBreed" placeholder="Dog's Breed" style="margin-top: 5%" value="{{dog_breed}}">
+        <input type="text" class="input" name= "dogSize" placeholder="Dog's Size" style="margin-top: 5%" value="{{dog_size}}">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="createDog({{dog_name}}, {{dog_breed}}, {{dog_size}})">Create Dog</button>
+    </div>
+</main>
