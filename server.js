@@ -12,6 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('mysql', mysql);
 app.set('port', port);
 
+app.use('/owners', require('./src/owner/owners.js'));
 //app.use('/', require('./src/index.js'));
 app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/src/index.html');
@@ -21,7 +22,6 @@ app.get('/index', (req, res) => {
 	res.sendFile(__dirname+ '/src/index.html');
 })
 
-//app.use('/owners', require('./src/owner/owners.js'));
 app.get('/owners', (req, res) => {
 	res.sendFile(__dirname + '/src/owner/owners.html');
 })
