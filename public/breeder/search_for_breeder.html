@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Who Let the Dogs Out?</title>
+    <meta name="description" content="Title">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/index">Home</a></li>
+            <!-- <li><a class="active" href="owners.html">Owners</a></li> -->
+            <li><div class="dropdown">
+                <button class="dropbtn">Owners <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/create_owner">Create a New Owner</a>
+                  <a href="/search_owner">Search for an Owner</a>
+                  <a href="/delete_owner">Delete an Owner</a>
+                  <a href="/add_dog">Add a Dog to Owner</a>
+                  <a href="/update_owner">Update Owner Information</a>
+                  <a href="/owners">Lists of Owners or Dogs</a>
+                </div>
+                </div>
+            </li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Breeders<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/create_breeder">Create a new Breeder</a>
+                  <a href="/search_for_breeder">Search for a Breeder</a>
+                  <a href="/delete_breeder">Delete a Breeder</a>
+                  <a href="/update_breeder">Update Breeder Information</a>
+                  <a href="/list_breeders">List of Breeders</a>
+                </div>
+                </div>
+            </li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Dogs<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/create_dog">Create a New Dog</a>
+                  <a href="/search_dog">Search for a Dog</a>
+                  <a href="/delete_dog">Delete a Dog</a>
+                  <a href="/update_dog">Update Dog Information</a>
+                  <a href="/dogs">List of Dogs</a>
+                </div>
+                </div>
+            </li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Dog Meets<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/create_meet">Create a New Dog Meet</a>
+                  <a href="/search_meet">Search for a Dog Meet</a>
+                  <a href="/delete_meet">Delete a Dog Meet</a>
+                  <a href="/update_meet">Update Dog Meet Information</a>
+                  <a href="/add_meet">Add Dog to Dog Meet</a>
+                  <a href="/dog_meet">List of Dog Meets or Dogs</a>
+                </div>
+                </div>
+            </li>
+            <li><div class="dropdown">
+                <button class="dropbtn">Dog Walkers<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/create_walker">Create a New Dog Walker</a>
+                  <a href="/search_walker">Search for a Dog Walker</a>
+                  <a href="/delete_walker">Delete a Dog Walker</a>
+                  <a href="/update_walker">Update Dog Walker Information</a>
+                  <a href="/add_walker">Add Dog to Walker</a>
+                  <a href="/walkers">List of Dog Walkers or Dogs</a>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+        <div class="titleinfo">
+            <center><h2>Search for a Breeder</h2>
+            <p> Please input breeder's name you wish to search for.
+            </p></center>
+        </div>
+
+        <div class="ownerinfo">
+            <input type="text" class="input" name= "breederName" placeholder="Name">
+            <div class="btn" name="button1" style="margin-top: 5%">Search for Breeder</div>
+        </div>
+
+        <script src="js/scripts.js"></script>
+        <body>
+    </html>
