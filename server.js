@@ -35,7 +35,27 @@ app.get('/owners', (req, res) => {
 })
 
 app.get('/dog_meet', (req, res) => {
-	res.sendFile(__dirname+ '/views/meet/dog_meet.html');
+	res.status(200).render('meet/dog_meet');
+})
+
+app.get('/create_meet', (req, res) => {
+	res.status(200).render('meet/create_meet');
+})
+
+app.get('/delete_meet', (req, res) => {
+	res.status(200).render('meet/delete_meet');
+})
+
+app.get('/search_meet', (req, res) => {
+	res.status(200).render('meet/search_meet');
+})
+
+app.get('/update_meet', (req, res) => {
+	res.status(200).render('meet/update_meet');
+})
+
+app.get('/add_meet', (req, res) => {
+	res.status(200).render('meet/add_meet');
 })
 
 app.get('/walkers', (req, res) => {
@@ -106,25 +126,7 @@ app.get('/update_dog', (req, res) => {
 	res.sendFile(__dirname + '/views/dog/update_dog.html');
 })
 
-app.get('/create_meet', (req, res) => {
-	res.sendFile(__dirname + '/views/meet/create_meet.html');
-})
 
-app.get('/delete_meet', (req, res) => {
-	res.sendFile(__dirname + '/views/meet/delete_meet.html');
-})
-
-app.get('/search_meet', (req, res) => {
-	res.sendFile(__dirname + '/views/meet/search_meet.html');
-})
-
-app.get('/update_meet', (req, res) => {
-	res.sendFile(__dirname + '/views/meet/update_meet.html');
-})
-
-app.get('/add_meet', (req, res) => {
-	res.sendFile(__dirname + '/views/meet/add_meet.html');
-})
 
 app.get('/create_walker', (req, res) => {
 	res.sendFile(__dirname + '/views/walker/create_walker.html');
