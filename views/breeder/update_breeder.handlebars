@@ -1,0 +1,21 @@
+﻿<main id="update_breeder">
+    <div class="titleinfo">
+        <center>
+            <h2>Update Breeder Information</h2>
+            <p>
+                Please update breeder's name, email, if they have dogs available, and number of dogs if applicable.
+            </p>
+        </center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name="breederName" placeholder="Name" value="{{name}}">
+        <input type="text" class="input" name="breederEmail" placeholder="Email" style="margin-top: 5%" value="{{email}}">
+        <input type="text" class="input" name="specBreed" placeholder="Specialized Breeds" style="margin-top: 5%" value="{{breeds}}">
+        <label for="hasDogs" style="margin-top: 5%"> Do you have dogs available?</label><br>
+        <input type="checkbox" class="input" name="hasDogs" id="hasDogs" value="{{has_dogs}}">
+        <input type="text" class="input" name="availDogs" placeholder="Number of Dogs Available" style="margin-top: 5%" value="{{num_dogs}}">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateBreeder({{name}}, {{email}}, {{breeds}}, {{has_dogs}}, {{num_dogs}})">Update Breeder Information</button>
+    </div>
+
+</main>

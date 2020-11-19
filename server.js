@@ -82,24 +82,26 @@ app.get('/delete_owner', (req, res) => {
 	res.sendFile(__dirname + '/views/owner/delete_owner.html');
 })
 
+
+
+app.get('/list_breeders', (req, res) => {
+	res.status(200).render('breeder/list_breeders');
+})
+
 app.get('/create_breeder', (req, res) => {
-	res.sendFile(__dirname + '/views/breeder/create_breeder.html');
+	res.status(200).render('breeder/create_breeder');
 })
 
 app.get('/delete_breeder', (req, res) => {
-	res.sendFile(__dirname + '/views/breeder/delete_breeder.html');
-})
-
-app.get('/list_breeders', (req, res) => {
-	res.sendFile(__dirname + '/views/breeder/list_breeders.html');
+	res.status(200).render('breeder/delete_breeder');
 })
 
 app.get('/search_for_breeder', (req, res) => {
-	res.sendFile(__dirname + '/views/breeder/search_for_breeder.html');
+	res.status(200).render('breeder/search_for_breeder');
 })
 
 app.get('/update_breeder', (req, res) => {
-	res.sendFile(__dirname + '/views/breeder/update_breeder.html');
+	res.status(200).render('breeder/update_breeder');
 })
 
 app.get('/style.css', (req, res) => {
@@ -125,8 +127,6 @@ app.get('/search_dog', (req, res) => {
 app.get('/update_dog', (req, res) => {
 	res.sendFile(__dirname + '/views/dog/update_dog.html');
 })
-
-
 
 app.get('/create_walker', (req, res) => {
 	res.sendFile(__dirname + '/views/walker/create_walker.html');
