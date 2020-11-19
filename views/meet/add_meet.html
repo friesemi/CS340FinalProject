@@ -1,0 +1,16 @@
+﻿<main id="add_meet">
+    <div class="titleinfo">
+        <center>
+            <h2>Add Dog to Dog Meet</h2>
+            <p>
+                Please input the dog's name and dog meet name you would like to add the dog to.
+            </p>
+        </center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name="dogName" placeholder="Dog's Name" style="margin-top: 5%" value="{{dog_name}}">
+        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
+        <input class="btn" name="button1" placeholder="Add Dog to Meet" style="margin-top: 5%" onclick="addMeet({{dog_name}}, {{meet_name}})">
+    </div>
+</main>

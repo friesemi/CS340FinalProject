@@ -1,0 +1,21 @@
+﻿<main id="update_meet">
+    <div class="titleinfo">
+        <center>
+            <h2>Update a Dog Meet Information</h2>
+            <p>
+                Please update the information below: an email for the event holder and the dog meet name as well as if RSVP is necessary or if the meet is breed or size specific.
+            </p>
+        </center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name="meetEmail" placeholder="Dog Meet Email" value="{{meet_email}}">
+        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
+        <label for="meetRSVP" style="margin-top: 5%">Is RSVP'ing necessary?</label><br>
+        <input type="checkbox" class="input" name="meetRSVP" id="meetRSVP" value="{{rsvp}}">
+        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)" style="margin-top: 5%" value="{{breeds}}">
+        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)" style="margin-top: 5%" value="{{sizes}}">
+        <input class="btn" name="button1" placeholder="Update Dog Meet Information" style="margin-top: 5%" onclick="updateMeet({{meet_email}}, {{meet_name}}, {{rsvp_val}}, {{breeds}}, {{sizes}})">
+    </div>
+
+</main>
