@@ -87,5 +87,26 @@ module.exports = function () {
         });
     });
 
+    router.post('/create_meet', function(req, res){
+
+        console.log("ADDING MEET");
+        console.log(req.body);
+
+        var callbackCount = 0;
+        var mysql = req.app.get('mysql');
+        var sql = "INSERT INTO cs340_friesemi.Dog_Meets(name, email, rsvp, breed_specific, size_specific) VALUES (?, ?, ?, ?, ?)";
+
+        var inserts = [req.body.meet_name, req.body.meet_email, req.body.rsvp, req.body.breed_specific, req.body.size_specific];
+
+        sql = mysql.pool.query(sql, inserts, function(err, results, fields){
+            if(err){
+                res.write(JSON.stringify(err));
+                res.end();
+            }else{
+                res.redirect('/meet/list_meets');
+            }
+        });
+    });
+
     return router;
 }();
