@@ -82,16 +82,16 @@ app.get('/delete_owner', (req, res) => {
 	res.status(200).render('owner/delete_owner');
 })
 
+app.get('/list_breeders', (req, res) => {
+	res.status(200).render('breeder/list_breeders');
+})
+
 app.get('/create_breeder', (req, res) => {
 	res.status(200).render('breeder/create_breeder');
 })
 
 app.get('/delete_breeder', (req, res) => {
 	res.status(200).render('breeder/delete_breeder');
-})
-
-app.get('/list_breeders', (req, res) => {
-	res.status(200).render('breeder/list_breeders');
 })
 
 app.get('/search_for_breeder', (req, res) => {
@@ -125,8 +125,6 @@ app.get('/search_dog', (req, res) => {
 app.get('/update_dog', (req, res) => {
 	res.status(200).render('dog/update_dog');
 })
-
-
 
 app.get('/create_walker', (req, res) => {
 	res.status(200).render(__dirname + 'walker/create_walker');
