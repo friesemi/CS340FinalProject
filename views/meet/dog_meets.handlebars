@@ -4,7 +4,7 @@
     </div>
 
     <button class="btn" name="button1" style="margin-top: 5%" onclick="listDogMeets()">List Dog Meets</button>
-    <button class="btn" name="button1" style="margin-top: 5%" onclick='listDogs("dog_meet")'>List Dogs</button>
+    <button class="btn" name="button1" style="margin-top: 5%" onclick='listDogs("dog_meets")'>List Dogs</button>
 
     <h3>Current Dog Meets:</h3>
     <table>
@@ -16,7 +16,7 @@
         <th>size_specific</th>
         </thead>
         <tbody>
-            {{#each dogs}}
+            {{#each meets}}
             <tr>
                 <td>{{name}}</td>
                 <td>{{email}}</td>
@@ -50,7 +50,7 @@
 
 <script>
     function listDogMeets() {
-        window.location = '/dog_meet/list_meets';
+        window.location = '/dog_meets/list_meets';
     }
 
     function listDogs(table) {

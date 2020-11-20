@@ -26,7 +26,7 @@ app.use('/api', require('./api.js'));
 app.use('/owners', require('./owners.js'));
 app.use('/breeders', require('./breeders.js'));
 app.use('/walkers', require('./walkers.js'));
-app.use('/meets', require('./meets.js'));
+app.use('/dog_meets', require('./meets.js'));
 app.use('/', express.static('public'));
 
 
@@ -38,8 +38,8 @@ app.get('/index', (req, res) => {
 	res.status(200).render('index');
 })
 
-app.get('/dog_meet', (req, res) => {
-	res.status(200).render('meet/dog_meet');
+app.get('/dog_meets', (req, res) => {
+	res.status(200).render('meet/dog_meets');
 })
 
 app.get('/create_meet', (req, res) => {
