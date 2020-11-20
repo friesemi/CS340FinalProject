@@ -1,0 +1,14 @@
+<main id="create_walker">
+    <div class="titleinfo">
+        <center><h2>Create a New Dog Walker</h2>
+            <p> Please input dog walker's name, email and number of spots available.
+            </p></center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name= "walkerName" placeholder="Name" value="{{walker_name}}">
+        <input type="text" class="input" name= "walkerEmail" placeholder="Email" style="margin-top: 5%" value="{{walker_email}}">
+        <input type="text" class="input" name= "numSpots" placeholder="Number of Spots Available" style="margin-top: 5%" value="{{num_spots}}">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="createWalker({{walker_name}}, {{walker_email}}, {{num_spots}})">Create Dog Walker</button>
+    </div>
+</main>
