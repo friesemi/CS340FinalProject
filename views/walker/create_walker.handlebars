@@ -5,10 +5,17 @@
             </p></center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name= "walkerName" placeholder="Name" value="{{walker_name}}">
-        <input type="text" class="input" name= "walkerEmail" placeholder="Email" style="margin-top: 5%" value="{{walker_email}}">
-        <input type="text" class="input" name= "numSpots" placeholder="Number of Spots Available" style="margin-top: 5%" value="{{num_spots}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="createWalker({{walker_name}}, {{walker_email}}, {{num_spots}})">Create Dog Walker</button>
-    </div>
+    <form id="add-walker" action="/api/create_walker" method="POST">
+        Walker's Name:<br>
+        <input type="text" name="walker_name">
+        <br><br>
+        Walker's Email:<br>
+        <input type="text" name="walker_email">
+        <br><br>
+        Number of Spots Available:
+        <input type="text" name="walker_num_spots">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
 </main>
