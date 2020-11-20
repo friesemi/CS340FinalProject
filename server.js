@@ -84,8 +84,8 @@ app.get('/delete_owner', (req, res) => {
 
 
 
-app.get('/list_breeders', (req, res) => {
-	res.status(200).render('breeder/list_breeders');
+app.get('/breeders', (req, res) => {
+	res.status(200).render('breeder/breeders');
 })
 
 app.get('/create_breeder', (req, res) => {
