@@ -31,7 +31,7 @@ app.get('/index', (req, res) => {
 })
 
 app.get('/owners', (req, res) => {
-	res.sendFile(__dirname + 'owner/owners');
+	res.status(200).render(__dirname + 'owner/owners');
 })
 
 app.get('/dog_meet', (req, res) => {
@@ -59,93 +59,93 @@ app.get('/add_meet', (req, res) => {
 })
 
 app.get('/walkers', (req, res) => {
-	res.sendFile(__dirname + 'walker/walkers');
+	res.status(200).render('walker/walkers');
 })
 
 app.get('/create_owner', (req, res) => {
-	res.sendFile(__dirname + 'owner/create_owner');
+	res.status(200).render('owner/create_owner');
 })
 
 app.get('/search_owner', (req, res) => {
-	res.sendFile(__dirname + 'owner/search_owner');
+	res.status(200).render('owner/search_owner');
 })
 
 app.get('/update_owner', (req, res) => {
-	res.sendFile(__dirname + 'owner/update_owner');
+	res.status(200).render('owner/update_owner');
 })
 
 app.get('/add_dog', (req, res) => {
-	res.sendFile(__dirname + 'dog/add_dog');
+	res.status(200).render('dog/add_dog');
 })
 
 app.get('/delete_owner', (req, res) => {
-	res.sendFile(__dirname + 'owner/delete_owner');
+	res.status(200).render('owner/delete_owner');
 })
 
 app.get('/create_breeder', (req, res) => {
-	res.sendFile(__dirname + 'breeder/create_breeder');
+	res.status(200).render('breeder/create_breeder');
 })
 
 app.get('/delete_breeder', (req, res) => {
-	res.sendFile(__dirname + 'breeder/delete_breeder');
+	res.status(200).render('breeder/delete_breeder');
 })
 
 app.get('/list_breeders', (req, res) => {
-	res.sendFile(__dirname + 'breeder/list_breeders');
+	res.status(200).render('breeder/list_breeders');
 })
 
 app.get('/search_for_breeder', (req, res) => {
-	res.sendFile(__dirname + 'breeder/search_for_breeder');
+	res.status(200).render('breeder/search_for_breeder');
 })
 
 app.get('/update_breeder', (req, res) => {
-	res.sendFile(__dirname + 'breeder/update_breeder');
+	res.status(200).render('breeder/update_breeder');
 })
 
 app.get('/style.css', (req, res) => {
-	res.sendFile(__dirname + '/public/css/style.css');
+	res.status(200).render('/public/css/style.css');
 })
 
 app.get('/dogs', (req, res) => {
-	res.sendFile(__dirname + 'dog/dogs');
+	res.status(200).render('dog/dogs');
 })
 
 app.get('/create_dog', (req, res) => {
-	res.sendFile(__dirname + 'dog/create_dog');
+	res.status(200).render('dog/create_dog');
 })
 
 app.get('/delete_dog', (req, res) => {
-	res.sendFile(__dirname + 'dog/delete_dog');
+	res.status(200).render('dog/delete_dog');
 })
 
 app.get('/search_dog', (req, res) => {
-	res.sendFile(__dirname + 'dog/search_dog');
+	res.status(200).render('dog/search_dog');
 })
 
 app.get('/update_dog', (req, res) => {
-	res.sendFile(__dirname + 'dog/update_dog');
+	res.status(200).render('dog/update_dog');
 })
 
 
 
 app.get('/create_walker', (req, res) => {
-	res.sendFile(__dirname + 'walker/create_walker');
+	res.status(200).render(__dirname + 'walker/create_walker');
 })
 
 app.get('/update_walker', (req, res) => {
-	res.sendFile(__dirname + 'walker/update_walker');
+	res.status(200).render(__dirname + 'walker/update_walker');
 })
 
 app.get('/add_walker', (req, res) => {
-	res.sendFile(__dirname + 'walker/add_walker');
+	res.status(200).render(__dirname + 'walker/add_walker');
 })
 
 app.get('/delete_walker', (req, res) => {
-	res.sendFile(__dirname + 'walker/delete_walker');
+	res.status(200).render(__dirname + 'walker/delete_walker');
 })
 
 app.get('/search_walker', (req, res) => {
-	res.sendFile(__dirname + 'walker/search_walker');
+	res.status(200).render(__dirname + 'walker/search_walker');
 })
 
 app.listen(port, () => {
