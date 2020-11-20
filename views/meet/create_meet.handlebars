@@ -8,13 +8,22 @@
         </center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name="meetEmail" placeholder="Dog Meet Email" value="{{meet_email}}">
-        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
-        <label for="meetRSVP" style="margin-top: 5%">Is RSVP'ing necessary?</label><br>
-        <input type="checkbox" class="input" name="meetRSVP" id="meetRSVP" value="{{rsvp_val}}">
-        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)" style="margin-top: 5%" value="{{breeds}}">
-        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)" style="margin-top: 5%" value="{{sizes}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="createMeet({{meet_email}}, {{meet_name}}, {{rsvp_val}}, {{breeds}}, {{sizes}})">Create Dog Meet</button>
-    </div>
+     <form id="add-meet" action="/api/create_meet" method="POST">
+        Meet's Name:<br>
+        <input type="text" name="meet_name">
+        <br><br>
+        Meets's Email:<br>
+        <input type="text" name="meet_email">
+        <br><br>
+        RSVP Required:<br>
+        <input type="text" name="rsvp">
+        <br><br>
+        Breed Specific:<br>
+        <input type="text" name="breed_specific">
+        <br><br>
+        Size Specific:<br>
+        <input type="text" name="size_specific">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
 </main>

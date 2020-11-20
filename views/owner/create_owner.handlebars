@@ -5,11 +5,18 @@
         </p></center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name= "ownerName" placeholder="Name" value="{{owner_name}}">
-        <input type="text" class="input" name= "ownerEmail" placeholder="Email" style="margin-top: 5%" value="{{owner_email}}">
-        <input type="text" class="input" name= "numDogs" placeholder="Number of Dogs" style="margin-top: 5%" value="{{num_dogs}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="createOwner({{owner_name}}, {{owner_email}}, {{num_dogs}})">Create Owner</button>
-    </div>
+    <form id="add-owner" action="/api/create_owner" method="POST">
+        Owner's Name:<br>
+        <input type="text" name="owner_name">
+        <br><br>
+        Owner's Email:<br>
+        <input type="text" name="owner_email">
+        <br><br>
+        Number of Dogs:
+        <input type="text" name="num_dogs">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
 </main>
 
