@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\public",
+    "\\views",
+    "\\views\\breeder",
+    "\\views\\dog",
+    "\\views\\layouts",
+    "\\views\\meet",
+    "\\views\\owner",
+    "\\views\\walker"
+  ],
+  "SelectedNode": "\\meets.js",
+  "PreviewInSolutionExplorer": false
+}
