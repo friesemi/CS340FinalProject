@@ -3,17 +3,29 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
-    function listOwners(res, context, mysql, complete) {
-        var query = "SELECT * FROM cs340_friesemi.Owners";
+    function listBreeders(res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Breeders";
         mysql.pool.query(query, function (err, rows) {
             if (err) {
                 res.write(JSON.stringify(err));
                 res.end();
             }
-            context.owners = rows;
+            context.breeders = rows;
             complete();
         });
     }
+
+    router.get("/list_breeders", function (req, res) {
+        var callbackCount = 0;
+        var context = {};
+        var mysql = req.app.get('mysql');
+        listBreeders(res, context, mysql, complete);
+        function complete() {
+            callbackCount++;
+            if (callbackCount >= 1)
+                res.render('breeder/breeders', context);
+        }
+    });
 
     function listDogs(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Dogs";
@@ -27,29 +39,15 @@ module.exports = function () {
         });
     }
 
-    router.get("/list_owners", function (req, res) {
-        var callbackCount = 0;
-        var context = {};
-        context.jsscripts = ["list_owners.js"];
-        var mysql = req.app.get('mysql');
-        listOwners(res, context, mysql, complete);
-        function complete() {
-            callbackCount++;
-            if(callbackCount >= 1)
-                res.render('owner/owners', context);
-        }
-    });
-
     router.get("/list_dogs", function (req, res) {
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["list_dogs.js"];
         var mysql = req.app.get('mysql');
         listDogs(res, context, mysql, complete);
         function complete() {
             callbackCount++;
-            if(callbackCount >= 1)
-                res.render('owner/owners', context);
+            if (callbackCount >= 1)
+                res.render('breeder/breeders', context);
         }
     });
 

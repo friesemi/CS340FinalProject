@@ -1,7 +1,30 @@
 <main id="list_dogs">
-  <div class="titleinfo">
-            <center><h2>List Dogs</h2>
-        </div>
-  <button class="btn" name="button1" style="margin-top: 5%" onclick="listDogs()">List Dogs</button>
+    <div class="titleinfo">
+        <center><h2>List Dogs</h2>
+    </div>
+    <button class="btn" name="button1" style="margin-top: 5%" onclick='listDogs("dogs")'>List Dogs</button><br /><br/>
+
+    <h3>Current Dogs:</h3>
+    <table>
+        <thead>
+            <th>name</th>
+            <th>breed</th>
+            <th>size</th>
+        </thead>
+        <tbody>
+            {{#each dogs}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{breed}}</td>
+                <td>{{size}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
 
+<script>
+    function listDogs(table) {
+        window.location = '/' + table + '/list_dogs';
+    }
+</script>

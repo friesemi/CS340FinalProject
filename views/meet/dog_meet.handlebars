@@ -4,5 +4,56 @@
     </div>
 
     <button class="btn" name="button1" style="margin-top: 5%" onclick="listDogMeets()">List Dog Meets</button>
-    <button class="btn" name="button1" style="margin-top: 5%" onclick="listDogs()">List Dogs</button>
+    <button class="btn" name="button1" style="margin-top: 5%" onclick='listDogs("dog_meet")'>List Dogs</button>
+
+    <h3>Current Dog Meets:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>rsvp</th>
+        <th>breed_specific</th>
+        <th>size_specific</th>
+        </thead>
+        <tbody>
+            {{#each dogs}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{rsvp}}</td>
+                <td>{{breed_specific}}</td>
+                <td>{{size_specific}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br /><br />
+
+    <h3>Current Dogs:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>breed</th>
+        <th>size</th>
+        </thead>
+        <tbody>
+            {{#each dogs}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{breed}}</td>
+                <td>{{size}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
 </main>
+
+<script>
+    function listDogMeets() {
+        window.location = '/dog_meet/list_meets';
+    }
+
+    function listDogs(table) {
+        window.location = '/' + table + '/list_dogs';
+    }
+</script>

@@ -16,10 +16,17 @@ var handlebars = require('express-handlebars').create({
 
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/static', express.static('public'));
 app.set('view engine', 'handlebars');
-app.use(express.static(path.join(__dirname, 'public')));
 app.set('mysql', mysql);
 app.set('port', port);
+
+app.use('/dogs', require('./dogs.js'));
+app.use('/owners', require('./owners.js'));
+app.use('/breeders', require('./breeders.js'));
+app.use('/walkers', require('./walkers.js'));
+app.use('/meets', require('./meets.js'));
+app.use('/', express.static('public'));
 
 
 app.get('/', (req, res) => {
@@ -28,10 +35,6 @@ app.get('/', (req, res) => {
 
 app.get('/index', (req, res) => {
 	res.status(200).render('index');
-})
-
-app.get('/owners', (req, res) => {
-	res.status(200).render(__dirname + 'owner/owners');
 })
 
 app.get('/dog_meet', (req, res) => {
@@ -58,8 +61,8 @@ app.get('/add_meet', (req, res) => {
 	res.status(200).render('meet/add_meet');
 })
 
-app.get('/walkers', (req, res) => {
-	res.status(200).render('walker/walkers');
+app.get('/owners', (req, res) => {
+	res.status(200).render('owner/owners');
 })
 
 app.get('/create_owner', (req, res) => {
@@ -126,25 +129,40 @@ app.get('/update_dog', (req, res) => {
 	res.status(200).render('dog/update_dog');
 })
 
+app.get('/walkers', (req, res) => {
+	res.status(200).render('walker/walkers');
+})
+
 app.get('/create_walker', (req, res) => {
-	res.status(200).render(__dirname + 'walker/create_walker');
+	res.status(200).render('walker/create_walker');
 })
 
 app.get('/update_walker', (req, res) => {
-	res.status(200).render(__dirname + 'walker/update_walker');
+	res.status(200).render('walker/update_walker');
 })
 
 app.get('/add_walker', (req, res) => {
-	res.status(200).render(__dirname + 'walker/add_walker');
+	res.status(200).render('walker/add_walker');
 })
 
 app.get('/delete_walker', (req, res) => {
-	res.status(200).render(__dirname + 'walker/delete_walker');
+	res.status(200).render('walker/delete_walker');
 })
 
 app.get('/search_walker', (req, res) => {
-	res.status(200).render(__dirname + 'walker/search_walker');
+	res.status(200).render('walker/search_walker');
 })
+
+app.use(function (req, res) {
+	res.status(404);
+	res.render('404');
+});
+
+app.use(function (err, req, res, next) {
+	console.error(err.stack);
+	res.status(500);
+	res.render('500');
+});
 
 app.listen(port, () => {
 	console.log("Server is running on port:" + app.get('port'));

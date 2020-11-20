@@ -1,24 +1,28 @@
-<main id="listWalkers">
+﻿<main id="list_breeders">
     <div class="titleinfo">
-        <center><h2>List of Dog Walkers or Dogs</h2>
+        <center><h2>List Breeders</h2>
     </div>
 
-    <button class="btn" name="button1" style="margin-top: 5%" onclick="listWalkers()">List Dog Walkers</button>
-    <button class="btn" name="button2" style="margin-top: 5%" onclick='listDogs("walkers")'>List Dogs</button>
+    <button class="btn" name="button1" style="margin-top: 5%" onclick="listBreeders()">List Breeders</button>
+    <button class="btn" name="button1" style="margin-top: 5%" onclick='listDogs("breeders")'>List Dogs</button>
 
-    <h3>Current Dog Walkers:</h3>
+    <h3>Current Breeders:</h3>
     <table>
         <thead>
         <th>name</th>
         <th>email</th>
-        <th>num_spots</th>
+        <th>breeds</th>
+        <th>has_dogs</th>
+        <th>num_dogs</th>
         </thead>
         <tbody>
             {{#each dogs}}
             <tr>
                 <td>{{name}}</td>
                 <td>{{email}}</td>
-                <td>{{num_spots}}</td>
+                <td>{{specialized_breeds}}</td>
+                <td>{{has_dogs}}</td>
+                <td>{{dogs_avail}}</td>
             </tr>
             {{/each}}
         </tbody>
@@ -41,12 +45,11 @@
             {{/each}}
         </tbody>
     </table>
-
 </main>
 
 <script>
-    function listWalkers() {
-        window.location = '/walkers/list_walkers';
+    function listBreeders() {
+        window.location = '/breeders/list_breeders';
     }
 
     function listDogs(table) {
