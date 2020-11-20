@@ -1,0 +1,15 @@
+<main id="create_owner">
+    <div class="titleinfo">
+        <center><h2>Create a New Owner</h2>
+        <p> Please input owner's name, email and number of dogs that they have.
+        </p></center>
+    </div>
+
+    <div class="ownerinfo">
+        <input type="text" class="input" name= "ownerName" placeholder="Name" value="{{owner_name}}">
+        <input type="text" class="input" name= "ownerEmail" placeholder="Email" style="margin-top: 5%" value="{{owner_email}}">
+        <input type="text" class="input" name= "numDogs" placeholder="Number of Dogs" style="margin-top: 5%" value="{{num_dogs}}">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="createOwner({{owner_name}}, {{owner_email}}, {{num_dogs}})">Create Owner</button>
+    </div>
+</main>
+
