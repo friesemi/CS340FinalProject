@@ -1,9 +1,54 @@
 <main id="list_owners">
-  <div class="titleinfo">
-    <center><h2>List of Owners or Dogs</h2>
-  </div>
+    <div class="titleinfo">
+        <center><h2>List of Owners or Dogs</h2>
+    </div>
 
-  <button class="btn" name="button1" id="listOwnBut" onclick="listOwners()" style="margin-top: 5%">List Owners</button>
-  <button class="btn" name="button2" id="listDogBut" style="margin-top: 5%" onclick="listDogs()">List Dogs</button>
+    <button class="btn" name="button1" id="listOwnBut" onclick="listOwners()" style="margin-top: 5%">List Owners</button>
+    <button class="btn" name="button2" id="listDogBut" style="margin-top: 5%" onclick='listDogs("owners")'>List Dogs</button>
+
+    <h3>Current Owners:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>num_dogs</th>
+        </thead>
+        <tbody>
+            {{#each owners}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{num_dogs}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br />
+
+    <h3>Current Dogs:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>breed</th>
+        <th>size</th>
+        </thead>
+        <tbody>
+            {{#each dogs}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{breed}}</td>
+                <td>{{size}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
 
+<script>
+    function listOwners() {
+        window.location = '/owners/list_owners';
+    }
+
+    function listDogs(table) {
+        window.location = '/' + table + '/list_dogs';
+    }
+</script>
