@@ -22,6 +22,7 @@ app.set('mysql', mysql);
 app.set('port', port);
 
 app.use('/dogs', require('./dogs.js'));
+app.use('/api', require('./api.js'));
 app.use('/owners', require('./owners.js'));
 app.use('/breeders', require('./breeders.js'));
 app.use('/walkers', require('./walkers.js'));

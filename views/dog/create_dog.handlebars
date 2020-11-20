@@ -5,10 +5,17 @@
             </p></center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name= "dogName" placeholder="Dog's Name" value="{{dog_name}}">
-        <input type="text" class="input" name= "dogBreed" placeholder="Dog's Breed" style="margin-top: 5%" value="{{dog_breed}}">
-        <input type="text" class="input" name= "dogSize" placeholder="Dog's Size" style="margin-top: 5%" value="{{dog_size}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="createDog({{dog_name}}, {{dog_breed}}, {{dog_size}})">Create Dog</button>
-    </div>
+    <form id="add-dog" action="/api/create_dog" method="POST">
+        Dog's Name:<br>
+        <input type="text" name="dog_name">
+        <br><br>
+        Dog's Breed:<br>
+        <input type="text" name="dog_breed">
+        <br><br>
+        Dog's Size (small, medium or large):
+        <input type="text" name="dog_size">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    
 </main>
