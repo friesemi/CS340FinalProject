@@ -170,6 +170,26 @@ h4 {
     flex-direction: column;
 }
 
+.tables {
+    max-width: 550px;
+    margin: 0 left;
+    background: rgba(21,140,255,0.2);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+h3 {
+    margin: 0 left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    max-width: 550px;
+    font-family: 'Poppins', sans-serif;
+}
+
 .searchinfo input[type=text]:focus {
     border: 3px solid #555;
   }
