@@ -27,5 +27,29 @@ module.exports = function () {
         }
     });
 
+    // ***Search function*** //
+    function searchDogs(req, res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Dogs WHERE name = " + mysql.pool.escape(req.params.dogName);
+
+        mysql.pool.query(query, function (err, results) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            }
+            context.foundDogs = results;
+            complete();
+        });
+    }
+
+    router.get("/search_dog/:dogName", function (req, res) {
+        var mysql = req.app.get('mysql');
+        var context = {};
+
+        searchDogs(req, res, context, mysql, complete);
+        function complete() {
+            res.render("dog/search_dog", context);
+        }
+    });
+
     return router;
 }();

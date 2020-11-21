@@ -51,5 +51,29 @@ module.exports = function () {
         }
     });
 
+    // ***Search function*** //
+    function searchMeets(req, res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Dog_Meets WHERE name = " + mysql.pool.escape(req.params.dogMeets);
+
+        mysql.pool.query(query, function (err, results) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            }
+            context.foundMeets = results;
+            complete();
+        });
+    }
+
+    router.get("/search_meet/:dogMeets", function (req, res) {
+        var mysql = req.app.get('mysql');
+        var context = {};
+
+        searchMeets(req, res, context, mysql, complete);
+        function complete() {
+            res.render("meet/search_meet", context);
+        }
+    });
+
     return router;
 }();

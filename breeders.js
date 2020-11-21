@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***List Functions*** //
     function listBreeders(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Breeders";
         mysql.pool.query(query, function (err, rows) {
@@ -48,6 +49,30 @@ module.exports = function () {
             callbackCount++;
             if (callbackCount >= 1)
                 res.render('breeder/breeders', context);
+        }
+    });
+
+    // ***Search function*** //
+    function searchBreeders(req, res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Breeders WHERE name = " + mysql.pool.escape(req.params.breederName);
+
+        mysql.pool.query(query, function (err, results) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } 
+            context.foundBreeders = results;
+            complete();
+        });
+    }
+
+    router.get("/search_for_breeder/:breederName", function (req, res) {
+        var mysql = req.app.get('mysql');
+        var context = {};
+        
+        searchBreeders(req, res, context, mysql, complete);
+        function complete() {
+            res.render("breeder/search_for_breeder", context);
         }
     });
 

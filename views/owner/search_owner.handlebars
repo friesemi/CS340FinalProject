@@ -1,12 +1,40 @@
 <main id="search_owner">
     <div class="titleinfo2">
-        <center><h2>Search for Owner</h2>
-        <p> Please input the owner's name that you would like to search for.
-        </p></center>
+        <center>
+            <h2>Search for Owner</h2>
+            <p>
+                Please input the owner's name that you would like to search for.
+            </p>
+        </center>
     </div>
 
     <div class="searchinfo">
-        <input type="text" class="input" name= "ownerName" placeholder="Name" value="{{owner_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchOwner({{owner_name}})">Search for Owner</button>
+        <input type="text" id="ownerName" class="input" name="ownerName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchOwner()">Search for Owner</button>
     </div>
+
+    <h3>Found Owners:</h3>
+    <table class="tables">
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>num_dogs</th>
+        </thead>
+        <tbody>
+            {{#each foundOwners}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{num_dogs}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br />
 </main>
+
+<script>
+    function searchOwner() {
+        var name = document.getElementById("ownerName").value;
+        window.location = '/owners/search_owner/' + encodeURI(name);
+    }
+</script>

@@ -51,5 +51,29 @@ module.exports = function () {
         }
     });
 
+    // ***Search function*** //
+    function searchWalkers(req, res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Dog_Walkers WHERE name = " + mysql.pool.escape(req.params.walkerName);
+
+        mysql.pool.query(query, function (err, results) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            }
+            context.foundWalkers = results;
+            complete();
+        });
+    }
+
+    router.get("/search_walker/:walkerName", function (req, res) {
+        var mysql = req.app.get('mysql');
+        var context = {};
+
+        searchWalkers(req, res, context, mysql, complete);
+        function complete() {
+            res.render("walker/search_walker", context);
+        }
+    });
+
     return router;
 }();

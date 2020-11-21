@@ -1,12 +1,40 @@
 <main id="search_walker">
     <div class="titleinfo">
-        <center><h2>Search for a Dog Walker</h2>
-        <p> Please input dog walker's name you wish to search for.
-        </p></center>
+        <center>
+            <h2>Search for a Dog Walker</h2>
+            <p>
+                Please input dog walker's name you wish to search for.
+            </p>
+        </center>
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name= "walkerName" placeholder="Name" value="{{walker_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchWalker({{walker_name}})">Search for Dog Walker</button>
+        <input type="text" id="walkerName" class="input" name="walkerName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchWalker()">Search for Dog Walker</button>
     </div>
+
+    <h3>Found Dog Walkers:</h3>
+    <table class="tables">
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>num_spots</th>
+        </thead>
+        <tbody>
+            {{#each foundWalkers}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{num_spots}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
+
+<script>
+    function searchWalker() {
+        var name = document.getElementById("walkerName").value;
+        window.location = '/walkers/search_walker/' + encodeURI(name);
+    }
+</script>
