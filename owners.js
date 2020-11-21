@@ -53,5 +53,29 @@ module.exports = function () {
         }
     });
 
+    // ***Search function*** //
+    function searchOwners(req, res, context, mysql, complete) {
+        var query = "SELECT * FROM cs340_friesemi.Owners WHERE name = " + mysql.pool.escape(req.params.ownerName);
+
+        mysql.pool.query(query, function (err, results) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            }
+            context.foundOwners = results;
+            complete();
+        });
+    }
+
+    router.get("/search_owner/:ownerName", function (req, res) {
+        var mysql = req.app.get('mysql');
+        var context = {};
+
+        searchOwners(req, res, context, mysql, complete);
+        function complete() {
+            res.render("owner/search_owner", context);
+        }
+    });
+
     return router;
 }();

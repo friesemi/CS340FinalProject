@@ -9,8 +9,36 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="findMeet({{meet_name}})">Search for Dog Meet</button>
-</div>
+        <input type="text" id="dogMeets" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%"">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchMeets()">Search for Dog Meet</button>
+    </div>
 
+    <h3>Found Dog Meets:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>rsvp</th>
+        <th>breed_specific</th>
+        <th>size_specific</th>
+        </thead>
+        <tbody>
+            {{#each foundMeets}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{rsvp}}</td>
+                <td>{{breed_specific}}</td>
+                <td>{{size_specific}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
+
+<script>
+    function searchMeets() {
+        var name = document.getElementById("dogMeets").value;
+        window.location = '/dog_meets/search_meet/' + encodeURI(name);
+    }
+</script>

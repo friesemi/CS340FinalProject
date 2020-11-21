@@ -9,8 +9,37 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name="breederName" placeholder="Name" value="{{name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchBreeder({{name}})">Search for Breeder</button>
+        <input type="text" id="breederName" class="input" name="breederName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchBreeders()">Search For Breeders</button>
     </div>
 
+    <h3>Found Breeders:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>email</th>
+        <th>breeds</th>
+        <th>has_dogs</th>
+        <th>num_dogs</th>
+        </thead>
+        <tbody>
+            {{#each foundBreeders}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{email}}</td>      
+                <td>{{specialized_breeds}}</td>
+                <td>{{has_dogs}}</td>
+                <td>{{dogs_avail}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br /><br />
+
 </main>
+
+<script>
+    function searchBreeders() {
+        var name = document.getElementById("breederName").value;
+        window.location = '/breeders/search_for_breeder/' + encodeURI(name);
+    }
+</script>

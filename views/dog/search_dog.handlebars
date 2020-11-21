@@ -6,7 +6,32 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name= "dogName" placeholder="Dog's Name" value="{{dog_name}}">
-        <div class="btn" name="button1" style="margin-top: 5%" onclick="searchDog({{dog_name}})">Search for Dog</button>
+        <input type="text" id="dogName" class="input" name="dogName" placeholder="Dog's Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="searchDog()">Search for Dog</button>
     </div>
+
+    <h3>Found Dogs:</h3>
+    <table>
+        <thead>
+        <th>name</th>
+        <th>breed</th>
+        <th>size</th>
+        </thead>
+        <tbody>
+            {{#each foundDogs}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{breed}}</td>
+                <td>{{size}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
 </main>
+
+<script>
+    function searchDog() {
+        var name = document.getElementById("dogName").value;
+        window.location = '/dogs/search_dog/' + encodeURI(name);
+    }
+</script>
