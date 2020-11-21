@@ -23,7 +23,7 @@ module.exports = function () {
         function complete() {
             callbackCount++;
             if (callbackCount >= 1)
-                res.render('meet/dog_meet', context);
+                res.render('meet/dog_meets', context);
         }
     });
 
@@ -47,7 +47,7 @@ module.exports = function () {
         function complete() {
             callbackCount++;
             if (callbackCount >= 1)
-                res.render('meet/dog_meet', context);
+                res.render('meet/dog_meets', context);
         }
     });
 
