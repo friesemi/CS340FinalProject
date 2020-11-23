@@ -37,7 +37,7 @@ CREATE TABLE Breeders (
 -- Create Dog_Meets Entity (Michael)
 CREATE TABLE Dog_Meets (
 	dmId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	dogId int NOT NULL,		-- Foreign Key
+	dogId int NULL,		-- Foreign Key
 	name varchar(255) UNIQUE NOT NULL,
 	email varchar(255) NOT NULL,
 	rsvp varchar(255) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE Dog_Meets (
 -- Create Dog_Walkers Entity (Michael)
 CREATE TABLE Dog_Walkers (
 	walkerId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	dogId int NOT NULL,		-- Foreign Key
+	dogId int NULL,		-- Foreign Key
 	name varchar(255) UNIQUE NOT NULL,
 	email varchar(255) NOT NULL,
 	num_spots int NOT NULL

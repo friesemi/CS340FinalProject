@@ -6,7 +6,14 @@
     </div>
 
     <div class="deleteinfo">
-        <input type="text" class="input" name= "ownerName" placeholder="Name" value="{{owner_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteOwner({{owner_name}})">Delete Owner</button>
+        <input type="text" id="ownerName" class="input" name= "ownerName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteOwner()">Delete Owner</button>
     </div>
 </main>
+
+<script>
+    function deleteOwner() {
+        var name = document.getElementById("ownerName").value;
+        window.location = "/owners/delete_owner/" + encodeURI(name);
+    }
+</script>

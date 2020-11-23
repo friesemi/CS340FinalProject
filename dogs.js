@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***List Function*** //
     function listDogs(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Dogs";
         mysql.pool.query(query, function (err, rows) {
@@ -49,6 +50,27 @@ module.exports = function () {
         function complete() {
             res.render("dog/search_dog", context);
         }
+    });
+
+    // ***Delete Function*** //
+    function deleteDog(req, res, mysql) {
+        var query = "DELETE FROM cs340_friesemi.Dogs WHERE name = " + mysql.pool.escape(req.params.dogName);
+
+        sql = mysql.pool.query(query, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/dogs/list_dogs');
+            }
+        });
+    }
+
+    router.get("/delete_dog/:dogName", function (req, res) {
+        console.log("DELETING DOG");
+
+        var mysql = req.app.get('mysql');
+        deleteDog(req, res, mysql);
     });
 
     return router;

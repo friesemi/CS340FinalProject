@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\public",
+    "\\public\\css",
+    "\\sql",
     "\\views",
-    "\\views\\breeder",
     "\\views\\dog",
     "\\views\\layouts",
     "\\views\\meet",
     "\\views\\owner",
     "\\views\\walker"
   ],
-  "SelectedNode": "\\meets.js",
+  "SelectedNode": "\\sql\\crud.sql",
   "PreviewInSolutionExplorer": false
 }

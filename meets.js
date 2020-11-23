@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***List Functions*** //
     function listMeets(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Dog_Meets";
         mysql.pool.query(query, function (err, rows) {
@@ -73,6 +74,27 @@ module.exports = function () {
         function complete() {
             res.render("meet/search_meet", context);
         }
+    });
+
+    // ***Delete Function*** //
+    function deleteMeet(req, res, mysql) {
+        var query = "DELETE FROM cs340_friesemi.Dog_Meets WHERE name = " + mysql.pool.escape(req.params.meetName);
+
+        sql = mysql.pool.query(query, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/dog_meets/list_meets');
+            }
+        });
+    }
+
+    router.get("/delete_meet/:meetName", function (req, res) {
+        console.log("DELETING DOG MEET");
+
+        var mysql = req.app.get('mysql');
+        deleteMeet(req, res, mysql);
     });
 
     return router;

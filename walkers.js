@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***List Functions*** //
     function listWalkers(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Dog_Walkers";
         mysql.pool.query(query, function (err, rows) {
@@ -73,6 +74,27 @@ module.exports = function () {
         function complete() {
             res.render("walker/search_walker", context);
         }
+    });
+
+    // ***Delete Function*** //
+    function deleteWalker(req, res, mysql) {
+        var query = "DELETE FROM cs340_friesemi.Dog_Walkers WHERE name = " + mysql.pool.escape(req.params.walkerName);
+
+        sql = mysql.pool.query(query, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/walkers/list_walkers');
+            }
+        });
+    }
+
+    router.get("/delete_walker/:walkerName", function (req, res) {
+        console.log("DELETING DOG WALKER");
+
+        var mysql = req.app.get('mysql');
+        deleteWalker(req, res, mysql);
     });
 
     return router;

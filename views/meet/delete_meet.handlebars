@@ -9,7 +9,14 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteMeet({{meet_name}}">Delete Dog Meet</button>
+        <input type="text" id="meetName" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteMeet()">Delete Dog Meet</button>
     </div>
 </main>
+
+<script>
+    function deleteMeet() {
+        var name = document.getElementById("meetName").value;
+        window.location = "/dog_meets/delete_meet/" + encodeURI(name);
+    }
+</script>

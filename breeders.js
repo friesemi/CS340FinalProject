@@ -76,5 +76,26 @@ module.exports = function () {
         }
     });
 
+    // ***Delete Function*** //
+    function deleteBreeder(req, res, mysql) {
+        var query = "DELETE FROM cs340_friesemi.Breeders WHERE name = " + mysql.pool.escape(req.params.breederName);
+
+        sql = mysql.pool.query(query, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/breeders/list_breeders');
+            }
+        });
+    }
+
+    router.get("/delete_breeder/:breederName", function (req, res) {
+        console.log("DELETING BREEDER");
+
+        var mysql = req.app.get('mysql');
+        deleteBreeder(req, res, mysql);
+    });
+
     return router;
 }();
