@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***Create Functions*** //
     router.post('/create_dog', function(req, res){
 
         console.log("ADDING DOG");
@@ -103,7 +104,7 @@ module.exports = function () {
                 res.write(JSON.stringify(err));
                 res.end();
             }else{
-                res.redirect('/meet/list_meets');
+                res.redirect('/meets/list_meets');
             }
         });
     });

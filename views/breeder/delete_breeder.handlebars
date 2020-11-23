@@ -10,7 +10,14 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name="breederName" placeholder="Name" value="{{name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteBreeder({{name}})">Delete Breeder</button>
+        <input type="text" id="breederName" class="input" name="breederName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteBreeder()">Delete Breeder</button>
     </div>
 </main>
+
+<script>
+    function deleteBreeder() {
+        var name = document.getElementById("breederName").value;
+        window.location = "/breeders/delete_breeder/" + encodeURI(name);
+    }
+</script>

@@ -3,6 +3,7 @@ module.exports = function () {
     var router = express.Router();
     var mysql = require('mysql');
 
+    // ***List Function*** //
     function listOwners(res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Owners";
         mysql.pool.query(query, function (err, rows) {
@@ -75,6 +76,27 @@ module.exports = function () {
         function complete() {
             res.render("owner/search_owner", context);
         }
+    });
+
+    // ***Delete Function*** //
+    function deleteOwner(req, res, mysql) {
+        var query = "DELETE FROM cs340_friesemi.Owners WHERE name = " + mysql.pool.escape(req.params.ownerName);
+
+        sql = mysql.pool.query(query, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/owners/list_owners');
+            }
+        });
+    }
+
+    router.get("/delete_owner/:ownerName", function (req, res) {
+        console.log("DELETING OWNER");
+
+        var mysql = req.app.get('mysql');
+        deleteOwner(req, res, mysql);
     });
 
     return router;

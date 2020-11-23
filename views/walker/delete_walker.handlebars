@@ -6,7 +6,14 @@
     </div>
 
     <div class="ownerinfo">
-        <input type="text" class="input" name= "walkerName" placeholder="Name" value="{{walker_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteWalker({{walker_name}})">Delete Dog Walker</button>
+        <input type="text" id="walkerName" class="input" name= "walkerName" placeholder="Name">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="deleteWalker()">Delete Dog Walker</button>
     </div>
 </main>
+
+<script>
+    function deleteWalker() {
+        var name = document.getElementById("walkerName").value;
+        window.location = "/walkers/delete_walker/" + encodeURI(name);
+    }
+</script>

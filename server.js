@@ -46,7 +46,7 @@ app.get('/create_meet', (req, res) => {
 	res.status(200).render('meet/create_meet');
 })
 
-app.get('/delete_meet', (req, res) => {
+app.get('/dog_meets/delete_meet', (req, res) => {
 	res.status(200).render('meet/delete_meet');
 })
 
@@ -82,7 +82,7 @@ app.get('/add_dog', (req, res) => {
 	res.status(200).render('dog/add_dog');
 })
 
-app.get('/delete_owner', (req, res) => {
+app.get('/owners/delete_owner', (req, res) => {
 	res.status(200).render('owner/delete_owner');
 })
 
@@ -94,7 +94,7 @@ app.get('/create_breeder', (req, res) => {
 	res.status(200).render('breeder/create_breeder');
 })
 
-app.get('/delete_breeder', (req, res) => {
+app.get('/breeders/delete_breeder', (req, res) => {
 	res.status(200).render('breeder/delete_breeder');
 })
 
@@ -118,7 +118,7 @@ app.get('/create_dog', (req, res) => {
 	res.status(200).render('dog/create_dog');
 })
 
-app.get('/delete_dog', (req, res) => {
+app.get('/dogs/delete_dog', (req, res) => {
 	res.status(200).render('dog/delete_dog');
 })
 
@@ -146,7 +146,7 @@ app.get('/add_walker', (req, res) => {
 	res.status(200).render('walker/add_walker');
 })
 
-app.get('/delete_walker', (req, res) => {
+app.get('/walkers/delete_walker', (req, res) => {
 	res.status(200).render('walker/delete_walker');
 })
 
