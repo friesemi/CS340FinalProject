@@ -5,12 +5,13 @@
     "\\public\\css",
     "\\sql",
     "\\views",
+    "\\views\\breeder",
     "\\views\\dog",
     "\\views\\layouts",
     "\\views\\meet",
     "\\views\\owner",
     "\\views\\walker"
   ],
-  "SelectedNode": "\\sql\\crud.sql",
+  "SelectedNode": "\\breeders.js",
   "PreviewInSolutionExplorer": false
 }

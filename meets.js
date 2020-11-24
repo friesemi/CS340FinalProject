@@ -76,6 +76,28 @@ module.exports = function () {
         }
     });
 
+    // ***Add Dog Function*** //
+    router.post('/add_dog', function (req, res) {
+
+        console.log("ADDING DOG TO DOG MEET");
+        console.log(req.body);
+
+        var callbackCount = 0;
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Dog_Meets SET dogId = (SELECT dogId FROM cs340_friesemi.Dogs WHERE name = ?) WHERE name = ?";
+
+        var inserts = [req.body.dogName, req.body.meetName];
+
+        sql = mysql.pool.query(sql, inserts, function (err, results, fields) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/dog_meets/list_meets');
+            }
+        });
+    });
+
     // ***Delete Function*** //
     function deleteMeet(req, res, mysql) {
         var query = "DELETE FROM cs340_friesemi.Dog_Meets WHERE name = " + mysql.pool.escape(req.params.meetName);

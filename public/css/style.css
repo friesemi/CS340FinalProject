@@ -176,6 +176,7 @@ h4 {
     background: rgba(21,140,255,0.2);
     padding: 30px;
     border-radius: 5px;
+    border-spacing: 15px;
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
