@@ -8,9 +8,9 @@
         </center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name="dogName" placeholder="Dog's Name" style="margin-top: 5%" value="{{dog_name}}">
-        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="addMeet({{dog_name}}, {{meet_name}})">Add Dog to Meet</button>
-    </div>
+    <form class="ownerinfo" action="/dog_meets/add_dog" method="POST">
+        <input type="text" class="input" name="dogName" placeholder="Dog's Name" style="margin-top: 5%">
+        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%">
+        <button class="btn" name="button1" style="margin-top: 5%">Add Dog to Meet</button>
+    </form>
 </main>

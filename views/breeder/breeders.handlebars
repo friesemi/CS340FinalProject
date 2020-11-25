@@ -31,16 +31,20 @@
     <h3>Current Dogs:</h3>
     <table class="tables">
         <thead>
+        <th>id</th>
         <th>name</th>
         <th>breed</th>
         <th>size</th>
+
         </thead>
         <tbody>
             {{#each dogs}}
             <tr>
+                <td>{{dogId}}</td>
                 <td>{{name}}</td>
                 <td>{{breed}}</td>
                 <td>{{size}}</td>
+
             </tr>
             {{/each}}
         </tbody>
