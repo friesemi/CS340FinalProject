@@ -8,7 +8,7 @@ var path = require('path');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 var app = express();
-var port = 3008;
+var port = 3056;
 
 var handlebars = require('express-handlebars').create({
 	defaultLayout: 'main',
