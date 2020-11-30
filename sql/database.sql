@@ -1,19 +1,20 @@
 -- Create Owners Entity (Shayla)
 DROP TABLE IF EXISTS Owner_Walker;
 DROP TABLE IF EXISTS Owner_Breeder;
+DROP TABLE IF EXISTS Dog_Walkers;
+DROP TABLE IF EXISTS Dog_Meets;
+DROP TABLE IF EXISTS Dogs;
 DROP TABLE IF EXISTS Owners;
 
 CREATE TABLE Owners (
 	ownerId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name varchar(255) UNIQUE NOT NULL,
 	email varchar(255) NOT NULL,
-	num_dogs int NOT NULL
+	num_dogs int NOT NULL,
+	dogId int NULL
 );
 
 -- Create Dogs Entity (Michael)
-DROP TABLE IF EXISTS Dog_Walkers;
-DROP TABLE IF EXISTS Dog_Meets;
-DROP TABLE IF EXISTS Dogs;
 
 CREATE TABLE Dogs (
 	dogId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -79,6 +80,11 @@ CREATE TABLE Owner_Breeder (
 
 -- Setup FK relationships --
 
+-- Setup Owner relationship
+ALTER TABLE Owners
+ADD CONSTRAINT fk_dogId_2
+FOREIGN KEY (dogId) REFERENCES Dogs(dogId)
+ON DELETE CASCADE;
 
 -- Setup Dog_Meets relationship
 ALTER TABLE Dog_Meets

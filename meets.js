@@ -76,6 +76,25 @@ module.exports = function () {
         }
     });
 
+    // ***Update Function*** //
+    router.post('/update_meet/', function (req, res) {
+        console.log("UPDATING DOG MEET");
+        console.log(req.body);
+
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Dog_Meets SET email = ?, breed_specific = ?, rsvp = ?, size_specific = ? WHERE name = ?";
+        var inserts = [req.body.meetEmail, req.body.breedSpecific, req.body.meetRSVP, req.body.sizeSpecific, req.body.meetName];
+
+        sql = mysql.pool.query(sql, inserts, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/dog_meets/list_meets');
+            }
+        });
+    });
+
     // ***Add Dog Function*** //
     router.post('/add_dog', function (req, res) {
 

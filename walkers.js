@@ -76,19 +76,37 @@ module.exports = function () {
         }
     });
 
+    // ***Update Dog Walker*** //
+    router.post('/update_walker', function (req, res) {
+        console.log("UPDATING DOG WALKER");
+        console.log(req.body);
+
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Dog_Walkers SET email = ?, num_spots = ? WHERE name = ?";
+        var inserts = [req.body.walkerEmail, req.body.numSpots, req.body.walkerName];
+
+        sql = mysql.pool.query(sql, inserts, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/walkers/list_walkers');
+            }
+        });
+    });
+
     // ***Add Dog Function*** //
     router.post('/add_dog', function (req, res) {
 
         console.log("ADDING DOG TO WALKER");
         console.log(req.body);
 
-        var callbackCount = 0;
         var mysql = req.app.get('mysql');
         var sql = "UPDATE cs340_friesemi.Dog_Walkers SET dogId = (SELECT dogId FROM cs340_friesemi.Dogs WHERE name = ?) WHERE name = ?";
 
         var inserts = [req.body.dogName, req.body.walkerName];
 
-        sql = mysql.pool.query(sql, inserts, function (err, results, fields) {
+        sql = mysql.pool.query(sql, inserts, function (err) {
             if (err) {
                 res.write(JSON.stringify(err));
                 res.end();

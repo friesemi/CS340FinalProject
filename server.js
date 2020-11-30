@@ -8,7 +8,7 @@ var path = require('path');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 var app = express();
-var port = 3056;
+var port = 3058;
 
 var handlebars = require('express-handlebars').create({
 	defaultLayout: 'main',
@@ -54,7 +54,7 @@ app.get('/dog_meets/search_meet', (req, res) => {
 	res.status(200).render('meet/search_meet');
 })
 
-app.get('/update_meet', (req, res) => {
+app.get('/dog_meets/update_meet', (req, res) => {
 	res.status(200).render('meet/update_meet');
 })
 
@@ -74,11 +74,11 @@ app.get('/owners/search_owner', (req, res) => {
 	res.status(200).render('owner/search_owner');
 })
 
-app.get('/update_owner', (req, res) => {
+app.get('/owners/update_owner', (req, res) => {
 	res.status(200).render('owner/update_owner');
 })
 
-app.get('/add_dog', (req, res) => {
+app.get('/dogs/add_dog', (req, res) => {
 	res.status(200).render('dog/add_dog');
 })
 
@@ -138,7 +138,7 @@ app.get('/create_walker', (req, res) => {
 	res.status(200).render('walker/create_walker');
 })
 
-app.get('/update_walker', (req, res) => {
+app.get('/walkers/update_walker', (req, res) => {
 	res.status(200).render('walker/update_walker');
 })
 

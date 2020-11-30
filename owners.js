@@ -78,6 +78,25 @@ module.exports = function () {
         }
     });
 
+    // ***Update Function*** //
+    router.post('/update_owner/', function (req, res) {
+        console.log("UPDATING DOG OWNER");
+        console.log(req.body);
+
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Owners SET email = ?, num_dogs = ? WHERE name = ?";
+        var inserts = [req.body.ownerEmail, req.body.numDogs, req.body.ownerName];
+
+        sql = mysql.pool.query(sql, inserts, function (err) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/owners/list_owners');
+            }
+        });
+    });
+
     // ***Delete Function*** //
     function deleteOwner(req, res, mysql) {
         var query = "DELETE FROM cs340_friesemi.Owners WHERE name = " + mysql.pool.escape(req.params.ownerName);
