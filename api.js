@@ -109,5 +109,52 @@ module.exports = function () {
         });
     });
 
+
+    // ***Update Functions*** //
+
+    router.post('/update_dog', function(req, res){
+
+        console.log("UPDATING DOG");
+        console.log(req.body);
+
+        var callbackCount = 0;
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Dogs SET breed = ?, size = ? WHERE name = ?";
+
+        var inserts = [req.body.dog_breed, req.body.dog_size, req.body.dog_name];
+
+        sql = mysql.pool.query(sql, inserts, function(err, results, fields){
+            if(err){
+                res.write(JSON.stringify(err));
+                res.end();
+            }else{
+                res.redirect('/dogs/list_dogs');
+                res.end();
+            }
+        });
+    });
+
+    router.post('/update_breeder', function(req, res){
+
+        console.log("UPDATING BREEDER");
+        console.log(req.body);
+
+        var callbackCount = 0;
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Breeders SET email = ?, specialized_breeds = ?, has_dogs = ?, dogs_avail = ? WHERE name = ?";
+
+        var inserts = [req.body.breeder_email, req.body.specialized_breeds, req.body.has_dogs, req.body.avail_dogs, req.body.breeder_name];
+
+        sql = mysql.pool.query(sql, inserts, function(err, results, fields){
+            if(err){
+                res.write(JSON.stringify(err));
+                res.end();
+            }else{
+                res.redirect('/breeders/list_breeders');
+                res.end();
+            }
+        });
+    });
+
     return router;
 }();

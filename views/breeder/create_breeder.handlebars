@@ -8,23 +8,25 @@
         </center>
     </div>
 
-     <form id="add-breeder" action="/api/create_breeder" method="POST">
-        Breeder's Name:<br>
-        <input type="text" name="breeder_name">
+    <div class="forms">
+        <form id="add-breeder" action="/api/create_breeder" method="POST">
+        <b>Name:</b><br>
+        <input type="text" placeholder="Breeder's Name" name="breeder_name">
         <br><br>
-        Breeder's Email:<br>
-        <input type="text" name="breeder_email">
+        <b>Email:</b><br>
+        <input type="text" placeholder="Breeder's Email" name="breeder_email">
         <br><br>
-        List specialized breed if any:<br>
-        <input type="text" name="specialized_breeds">
+        <b>List specialized breed if any:</b><br>
+        <input type="text" placeholder="Breed(s)" name="specialized_breeds">
         <br><br>
-        Do you have dogs (yes or no)?<br>
-        <input type="text" name="has_dogs">
+        <b>Do you have dogs?</b><br>
+        <input type="text" placeholder="Yes or No" name="has_dogs">
         <br><br>
-        How many dogs available do you have?<br>
-        <input type="number" name="dogs_avail">
+        <b>How many dogs available do you have?</b><br>
+        <input type="number" placeholder="Number of dogs available, if any" name="dogs_avail">
         <br><br>
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    </div>
 
 </main>

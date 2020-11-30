@@ -5,18 +5,20 @@
         </p></center>
     </div>
 
-    <form id="add-owner" action="/api/create_owner" method="POST">
-        Owner's Name:<br>
-        <input type="text" name="owner_name">
+    <div class="forms">
+        <form id="add-owner" action="/api/create_owner" method="POST">
+        <b>Name:</b><br>
+        <input type="text" placeholder="Name of Owner" name="owner_name">
         <br><br>
-        Owner's Email:<br>
-        <input type="text" name="owner_email">
+        <b>Email:</b><br>
+        <input type="text" placeholder="Email" name="owner_email">
         <br><br>
-        Number of Dogs:
-        <input type="text" name="num_dogs">
+        <b>Number of Dogs:</b><br>
+        <input type="text" placeholder="Number of Dogs" name="num_dogs">
         <br><br>
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    </div>
 
 </main>
 
