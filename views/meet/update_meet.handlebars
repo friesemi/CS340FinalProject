@@ -8,14 +8,19 @@
         </center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name="meetEmail" placeholder="Dog Meet Email" value="{{meet_email}}">
-        <input type="text" class="input" name="meetName" placeholder="Dog Meet Name" style="margin-top: 5%" value="{{meet_name}}">
-        <label for="meetRSVP" style="margin-top: 5%">Is RSVP'ing necessary?</label><br>
-        <input type="checkbox" class="input" name="meetRSVP" id="meetRSVP" value="{{rsvp}}">
-        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)" style="margin-top: 5%" value="{{breeds}}">
-        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)" style="margin-top: 5%" value="{{sizes}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateMeet({{meet_email}}, {{meet_name}}, {{rsvp_val}}, {{breeds}}, {{sizes}})">Update Dog Meet Information</button>
-    </div>
+    <form class="ownerinfo" action="/dog_meets/update_meet" method="POST">
+        <input type="text" id="meetName" class="input" name="meetName" placeholder="Dog Meet Name to Update" style="margin-top: 5%">
+        <input type="text" class="input" name="meetEmail" placeholder="Dog Meet Email">
+        <input type="text" class="input" name="meetRSVP" id="meetRSVP" placeholder="Is RSVP'ing necessary?">
+        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)" style="margin-top: 5%">
+        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)" style="margin-top: 5%">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateMeet()">Update Dog Meet Information</button>
+    </form>
 
 </main>
+
+<script>
+    function updateMeet() {
+        window.location = "/dog_meets/update_meet";
+    }
+</script>

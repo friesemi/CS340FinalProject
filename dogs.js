@@ -28,6 +28,27 @@ module.exports = function () {
         }
     });
 
+    // ***Add Dog to Owner function
+    router.post('/add_dog', function (req, res) {
+
+        console.log("ADDING DOG TO OWNER");
+        console.log(req.body);
+
+        var mysql = req.app.get('mysql');
+        var sql = "UPDATE cs340_friesemi.Owners SET dogId = (SELECT dogId FROM cs340_friesemi.Dogs WHERE name = ?) WHERE name = ?";
+
+        var inserts = [req.body.dogName, req.body.ownerName];
+
+        sql = mysql.pool.query(sql, inserts, function (err, results, fields) {
+            if (err) {
+                res.write(JSON.stringify(err));
+                res.end();
+            } else {
+                res.redirect('/owners/list_owners');
+            }
+        });
+    });
+
     // ***Search function*** //
     function searchDogs(req, res, context, mysql, complete) {
         var query = "SELECT * FROM cs340_friesemi.Dogs WHERE name = " + mysql.pool.escape(req.params.dogName);

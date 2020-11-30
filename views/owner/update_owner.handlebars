@@ -5,9 +5,16 @@
         </p></center>
     </div>
 
-    <div class="deleteinfo">
-        <input type="text" class="input" name= "ownerName" placeholder="Name" value="{{owner_name}}">
-        <input type="text" class="input" name= "ownerName" placeholder="Dog's Name" value="{{dog_name}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateOwner({{owner_name}}, {{dog_name}})">Update Owner Information</button>
-    </div>
+    <form class="deleteinfo" action="/owners/update_owner" method="POST">
+        <input type="text" id="ownerName" class="input" name="ownerName" placeholder="Name of Owner to Update">
+        <input type="text" class="input" name="ownerEmail" placeholder="Email">
+        <input type="text" class="input" name="numDogs" placeholder="Number of Dogs">
+        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateOwner()">Update Owner Information</button>
+    </form>
 </main>
+
+<script>
+    function updateOwner() {
+        window.location = "/owners/update_owner/";
+    }
+</script>
