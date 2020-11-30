@@ -8,22 +8,24 @@
         </center>
     </div>
 
-     <form id="add-meet" action="/api/create_meet" method="POST">
-        Meet's Name:<br>
-        <input type="text" name="meet_name">
+    <div class="forms">
+        <form id="add-meet" action="/api/create_meet" method="POST">
+        <b>Meet's Name:</b><br>
+        <input type="text" placeholder="Meet's Name" name="meet_name">
         <br><br>
-        Meets's Email:<br>
-        <input type="text" name="meet_email">
+        <b>Meets's Email:</b><br>
+        <input type="text" placeholder="Meet's Email" name="meet_email">
         <br><br>
-        RSVP Required:<br>
-        <input type="text" name="rsvp">
+        <b>RSVP Required:</b><br>
+        <input type="text" placeholder="Yes or No" name="rsvp">
         <br><br>
-        Breed Specific:<br>
-        <input type="text" name="breed_specific">
+        <b>Breed Specific:</b><br>
+        <input type="text" placeholder="List breed" name="breed_specific">
         <br><br>
-        Size Specific:<br>
-        <input type="text" name="size_specific">
+        <b>Size Specific:</b><br>
+        <input type="text" placeholder="Small, Medium or Large" name="size_specific">
         <br><br>
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    </div>
 </main>

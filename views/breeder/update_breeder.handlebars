@@ -8,14 +8,25 @@
         </center>
     </div>
 
-    <div class="ownerinfo">
-        <input type="text" class="input" name="breederName" placeholder="Name" value="{{name}}">
-        <input type="text" class="input" name="breederEmail" placeholder="Email" style="margin-top: 5%" value="{{email}}">
-        <input type="text" class="input" name="specBreed" placeholder="Specialized Breeds" style="margin-top: 5%" value="{{breeds}}">
-        <label for="hasDogs" style="margin-top: 5%"> Do you have dogs available?</label><br>
-        <input type="checkbox" class="input" name="hasDogs" id="hasDogs" value="{{has_dogs}}">
-        <input type="text" class="input" name="availDogs" placeholder="Number of Dogs Available" style="margin-top: 5%" value="{{num_dogs}}">
-        <button class="btn" name="button1" style="margin-top: 5%" onclick="updateBreeder({{name}}, {{email}}, {{breeds}}, {{has_dogs}}, {{num_dogs}})">Update Breeder Information</button>
+    <div class="forms">
+        <form id="update-breeder" action="/api/update_breeder" method="POST">
+        <b>Name:</b><br>
+        <input type="text" placeholder="Enter Breeder's Name You Wish to Update"name="breeder_name">
+        <br><br>
+        <b>Breeder's Email:</b><br>
+        <input type="text" placeholder="Update Email" name="breeder_email">
+        <br><br>
+        <b>Specialized Breeds (n/a if none):</b><br>
+        <input type="text" placeholder="Update Specialized Breeds" name="specialized_breeds">
+        <br><br>
+        <b>Do you have dogs available (yes or no):</b><br>
+        <input type="text" placeholder="Yes or No" name="has_dogs">
+        <br><br>
+        <b>Number of dogs available (0 if none):</b><br>
+        <input type="text" placeholder="Number of Dogs Available" name="avail_dogs">
+        <br><br>
+        <input id="button" type="submit" value="Update Breeder">
+        </form>
     </div>
 
 </main>

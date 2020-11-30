@@ -10,6 +10,7 @@
     position:fixed;
     bottom:0px;
     left: 15%;
+    z-index: -1;
 
 }
 
@@ -163,7 +164,7 @@ h4 {
 .searchinfo{
     max-width: 550px;
     margin: 0 auto;
-    background: rgba(21,140,255,0.2);
+    background: #DEEAFF;
     padding: 30px;
     border-radius: 5px;
     display: flex;
@@ -173,13 +174,46 @@ h4 {
 .tables {
     max-width: 550px;
     margin: 0 left;
-    background: rgba(21,140,255,0.2);
+    background: #DEEAFF;
     padding: 30px;
     border-radius: 5px;
     border-spacing: 15px;
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
+}
+
+.forms {
+  margin: auto;
+  width: 50%;
+    background: #DEEAFF;
+    padding: 30px;
+    border-radius: 5px;
+    border-spacing: 15px;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forms input {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.forms input[type=submit]{
+    background-color: rgba(21,140,255,0.8);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forms input[type=text]:focus {
+    border: 3px solid #555;
 }
 
 h3 {
