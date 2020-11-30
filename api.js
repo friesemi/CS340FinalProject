@@ -104,7 +104,7 @@ module.exports = function () {
                 res.write(JSON.stringify(err));
                 res.end();
             }else{
-                res.redirect('/meets/list_meets');
+                res.redirect('/dog_meets');
             }
         });
     });
