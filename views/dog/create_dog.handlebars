@@ -5,17 +5,19 @@
             </p></center>
     </div>
 
-    <form id="add-dog" action="/api/create_dog" method="POST">
-        Dog's Name:<br>
-        <input type="text" name="dog_name">
+    <div class="forms">
+        <form id="add-dog" action="/api/create_dog" method="POST">
+        <b>Name:</b><br>
+        <input type="text" placeholder="Dog's Name" name="dog_name">
         <br><br>
-        Dog's Breed:<br>
-        <input type="text" name="dog_breed">
+        <b>Breed:</b><br>
+        <input type="text" placeholder="Dog's Breed" name="dog_breed">
         <br><br>
-        Dog's Size (small, medium or large):
-        <input type="text" name="dog_size">
+       <b>Size:</b>
+        <input type="text" placeholder="Small, Medium or Large" name="dog_size">
         <br><br>
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    </div>
     
 </main>
