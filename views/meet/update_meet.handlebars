@@ -8,12 +8,22 @@
         </center>
     </div>
 
+
     <form class="ownerinfo" action="/dog_meets/update_meet" method="POST">
-        <input type="text" id="meetName" class="input" name="meetName" placeholder="Dog Meet Name to Update" style="margin-top: 5%">
+        <b>Dog Meet's Name:</b>
+        <input type="text" id="meetName" class="input" name="meetName" placeholder="Dog Meet Name to Update">
+        <br>
+        <b>Dog Meet's Email</b>
         <input type="text" class="input" name="meetEmail" placeholder="Dog Meet Email">
+        <br>
+        <b>Is RSVPing Necessary?</b>
         <input type="text" class="input" name="meetRSVP" id="meetRSVP" placeholder="Is RSVP'ing necessary?">
-        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)" style="margin-top: 5%">
-        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)" style="margin-top: 5%">
+        <br>
+        <b>Is the Meet Breed Specific?</b>
+        <input type="text" class="input" name="breedSpecific" placeholder="Breed Specific (list breeds)">
+        <br>
+        <b>Is the Meet Size Specific?</b>
+        <input type="text" class="input" name="sizeSpecific" placeholder="Size Specific (list sizes: small, medium, large)">
         <button class="btn" name="button1" style="margin-top: 5%" onclick="updateMeet()">Update Dog Meet Information</button>
     </form>
 
